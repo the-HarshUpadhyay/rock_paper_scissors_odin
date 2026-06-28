@@ -3,6 +3,7 @@ function getComputerChoice(){
     let choice = ["rock","paper","scissors"]
     return choice[Math.floor(Math.random()*3)];
 }
+
 function getHumanChoice(){
     let choice = prompt('Enter Choice');
     choice = choice.toLowerCase();
@@ -69,18 +70,22 @@ function playRound(computerChoice,humanChoice){
 }
 
 function playGame(){
+    const btnRock = document.querySelector('.rock');
+    const btnPaper = document.querySelector('.paper');
+    const btnScissors = document.querySelector('.scissors');
 
-    for(let i =1;i<=5;i++){
-        console.log("Round "+i+": ");
-        let humanSelection = getHumanChoice();
-        let computerSelection = getComputerChoice();
-        playRound(computerSelection,humanSelection);
-    }
-    if(humanScore>=3) console.log("You Won!");
-    else console.log("You Lost!");
+    btnRock.addEventListener('click',()=>{
+        playRound(getComputerChoice(),'rock');
+    })
+    btnPaper.addEventListener('click',()=>{
+        playRound(getComputerChoice(),'paper');
+    })
+    btnScissors.addEventListener('click',()=>{
+        playRound(getComputerChoice(),'scissors');
+    })
+
+
 }
-//console.log(getComputerChoice());
-//console.log(getHumanChoice());
 
 let humanScore = 0;
 let computerScore = 0;
