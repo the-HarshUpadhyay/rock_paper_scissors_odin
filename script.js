@@ -4,20 +4,6 @@ function getComputerChoice(){
     return choice[Math.floor(Math.random()*3)];
 }
 
-function getHumanChoice(){
-    let choice = prompt('Enter Choice');
-    choice = choice.toLowerCase();
-    switch (choice){
-        case "rock":
-        case "paper":
-        case "scissors":
-            return choice;
-            break;
-        default:
-            alert("Enter a valid choice!!");
-            break;
-    }
-}
 function playRound(computerChoice,humanChoice){
     console.log(`Computer: ${computerChoice}\tUser: ${humanChoice}`)
     let humanWins = 0;
